@@ -1,0 +1,18 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/taha/ros2_ws/build/robile_reach_goal",
+        "/home/taha/ros2_ws/install/robile_reach_goal/lib/python3.10/site-packages",
+        "/home/taha/ros2_ws/install/robile_navigation/local/lib/python3.10/dist-packages",
+        "/home/taha/ros2_ws/install/robile_interfaces/local/lib/python3.10/dist-packages",
+        "/home/taha/ros2_ws/build/robile_control_simple",
+        "/home/taha/ros2_ws/install/robile_control_simple/lib/python3.10/site-packages",
+        "/home/taha/ros2_ws/build/robile_bringup",
+        "/home/taha/ros2_ws/install/robile_bringup/lib/python3.10/site-packages",
+        "/home/taha/ros2_ws/build/py_trees_ros",
+        "/home/taha/ros2_ws/install/py_trees_ros/lib/python3.10/site-packages",
+        "/home/taha/ros2_ws/build/last_minute_miracle",
+        "/home/taha/ros2_ws/install/last_minute_miracle/lib/python3.10/site-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ]
+}
