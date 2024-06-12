@@ -1,6 +1,6 @@
 controller_manager:
   ros__parameters:
-    update_rate: 200
+    update_rate: 500
     use_sim_time: true
 
     joint_trajectory_controller:
@@ -28,5 +28,10 @@ joint_trajectory_controller:
       - HR_HAA
       - HR_HFE
       - HR_KFE
-
     interface_name: position
+    
+    command_interface: 
+      -position
+    state_interface:
+      -position
+      -velocity

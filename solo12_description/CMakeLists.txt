@@ -7,12 +7,26 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(trajectory_msgs REQUIRED)
+
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
+
+
+# Create Executable for Joint Publisher 
+add_executable(joint_publisher src/joint_publisher.cpp)
+ament_target_dependencies(joint_publisher rclcpp trajectory_msgs)
+
+install(TARGETS
+  joint_publisher
+  DESTINATION lib/${PROJECT_NAME})
+
 install(DIRECTORY urdf meshes config launch rviz DESTINATION share/${PROJECT_NAME}/)
 
+#-----------------------------------------------------------------------------------------
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   # the following line skips the linter which checks for copyrights

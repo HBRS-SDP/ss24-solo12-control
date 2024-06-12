@@ -18,7 +18,12 @@
   <exec_depend>joint_state_publisher</exec_depend>
   <exec_depend>joint_state_broadcaster</exec_depend>
   <exec_depend>robot_state_publisher</exec_depend>
-  <exec_depend>controller_manager</exec_depend> <!-- required for ros2_control-->
+  <!--ADDED-->
+  <exec_depend>rclpp</exec_depend>
+  <exec_depend>trajectory_msgs</exec_depend>
+  <!--END ADDED-->
+
+  <!--exec_depend>controller_manager</exec_depend> required for ros2_control-->
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
