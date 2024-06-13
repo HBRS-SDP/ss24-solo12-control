@@ -66,7 +66,7 @@ private:
         message.points.push_back(point);
         publisher_->publish(message);
 
-        RCLCPP_INFO(this->get_logger(), "Publishing: '%f', %f'", position1, position2, position3, position4, position5, position6, position7, position8, position9, position10, position11, position12);
+        RCLCPP_INFO(this->get_logger(), "Publishing: '%f', %f', '%f', %f', '%f', %f', '%f', %f', '%f', %f', '%f', %f',", position1, position2, position3, position4, position5, position6, position7, position8, position9, position10, position11, position12);
         count_++;
     }
 
