@@ -1,0 +1,60 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100 # Hz
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    forward_position_controller:
+      type: forward_command_controller/ForwardCommandController
+
+    position_trajectory_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+forward_position_controller:
+  ros__parameters:
+    joints:
+      - FL_HAA
+      - FR_HAA
+      - HL_HAA
+      - HR_HAA
+      - FL_KFE
+      - FR_KFE
+      - HL_KFE
+      - HR_KFE
+      - FL_HFE
+      - FR_HFE
+      - HL_HFE
+      - HR_HFE
+    interface_name: position
+
+position_trajectory_controller:
+  ros__parameters:
+    joints:
+      - FL_HAA
+      - FR_HAA
+      - HL_HAA
+      - HR_HAA
+      - FL_KFE
+      - FR_KFE
+      - HL_KFE
+      - HR_KFE
+      - FL_HFE
+      - FR_HFE
+      - HL_HFE
+      - HR_HFE
+
+    command_interfaces:
+      - position
+
+    state_interfaces:
+      - position
+      - velocity
+
+    state_publish_rate: 50.0  # Hz
+    action_monitor_rate: 20.0  # Hz
+
+    allow_partial_joints_goal: false  # Defaults to false
+    constraints:
+      stopped_velocity_tolerance: 0.01  # Defaults to 0.01
+      goal_time: 0.0  # Defaults to 0.0 (start immediately)
