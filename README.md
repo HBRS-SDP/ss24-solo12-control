@@ -17,7 +17,7 @@ rosdep install --from-paths src --ignore-src -r -y
 To launch the system use:
 
 ```bash
-ros2 launch solo12_bringup robot.launch.py
+ros2 launch solo12_bringup solo12.launch.py
 ```
 
 to get more details of the availables launch arguments see [solo12_bringup](./solo12_bringup/README.md) package.
