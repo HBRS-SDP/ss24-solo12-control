@@ -3,6 +3,17 @@
 
 This repository supports the development and control of the SOLO12 robot from the Open Dynamic Robot Initiative, leveraging the *ros2_control* framework. It includes essential packages for robot description, control, and simulation, providing a foundational structure to work with SOLO12 in ROS 2.
 
+
+# Installing this repository
+
+After cloning the repository, go to your source workspace and execute the following commands to import the necessary repositories and to install all dependencies:
+```bash
+vcs import --input ss24-solo12-control/ss24-solo12-control.repos .
+rosdep update
+rosdep install -y -i --from-paths .
+```
+
+
 ## What is *ros2_control*?
 
 In short, *ros2_control* is a control framework for ROS 2. But actually, it is much more—it's the kernel of the ROS 2 system that controls robots:
