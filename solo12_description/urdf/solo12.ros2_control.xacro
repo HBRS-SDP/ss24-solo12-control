@@ -10,88 +10,184 @@
                sim_gazebo_classic:=^|false
                sim_gazebo:=^|false">
 
-      <ros2_control name="Solo12HardwareInterface" type="system">
-        <hardware>
+    <ros2_control name="Solo12HardwareInterface" type="system">
+      <hardware>
 
-          <!-- Hardware plugin selection based on the parameters -->
-          <xacro:if value="${use_mock_hardware}">
-            <plugin>mock_components/GenericSystem</plugin>
-            <param name="mock_sensor_commands">${mock_sensor_commands}</param>
-          </xacro:if>
-          <xacro:if value="${sim_gazebo_classic}">
-            <plugin>gazebo_ros2_control/GazeboSystem</plugin>
-          </xacro:if>
-          <xacro:if value="${sim_gazebo}">
-            <plugin>ign_ros2_control/IgnitionSystem</plugin>
-          </xacro:if>
-          <xacro:unless value="${use_mock_hardware or sim_gazebo_classic or sim_gazebo}">
-            <plugin>controlko_hardware_interface/RRBotHardwareInterface</plugin>
-          </xacro:unless>
+        <!-- Hardware plugin selection based on the parameters -->
+        <xacro:if value="${use_mock_hardware}">
+          <plugin>mock_components/GenericSystem</plugin>
+          <param name="mock_sensor_commands">${mock_sensor_commands}</param>
+        </xacro:if>
+        <xacro:if value="${sim_gazebo_classic}">
+          <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+        </xacro:if>
+        <xacro:if value="${sim_gazebo}">
+          <plugin>ign_ros2_control/IgnitionSystem</plugin>
+        </xacro:if>
+        <xacro:unless value="${use_mock_hardware or sim_gazebo_classic or sim_gazebo}">
+          <plugin>controlko_hardware_interface/RRBotHardwareInterface</plugin>
+        </xacro:unless>
 
-        </hardware>
+      </hardware>
 
-        <!-- Joint definitions for Solo12 -->
-        <joint name="FL_HAA">
-          <command_interface name="velocity"/>
-          <state_interface name="position"/>
-          <state_interface name="velocity"/>
-        </joint>
-        <joint name="FL_HFE">
-          <command_interface name="velocity"/>
-          <state_interface name="position"/>
-          <state_interface name="velocity"/>
-        </joint>
-        <joint name="FL_KFE">
-          <command_interface name="velocity"/>
-          <state_interface name="position"/>
-          <state_interface name="velocity"/>
-        </joint>
-        <joint name="FR_HAA">
-          <command_interface name="velocity"/>
-          <state_interface name="position"/>
-          <state_interface name="velocity"/>
-        </joint>
-        <joint name="FR_HFE">
-          <command_interface name="velocity"/>
-          <state_interface name="position"/>
-          <state_interface name="velocity"/>
-        </joint>
-        <joint name="FR_KFE">
-          <command_interface name="velocity"/>
-          <state_interface name="position"/>
-          <state_interface name="velocity"/>
-        </joint>
-        <joint name="HL_HAA">
-          <command_interface name="velocity"/>
-          <state_interface name="position"/>
-          <state_interface name="velocity"/>
-        </joint>
-        <joint name="HL_HFE">
-          <command_interface name="velocity"/>
-          <state_interface name="position"/>
-          <state_interface name="velocity"/>
-        </joint>
-        <joint name="HL_KFE">
-          <command_interface name="velocity"/>
-          <state_interface name="position"/>
-          <state_interface name="velocity"/>
-        </joint>
-        <joint name="HR_HAA">
-          <command_interface name="velocity"/>
-          <state_interface name="position"/>
-          <state_interface name="velocity"/>
-        </joint>
-        <joint name="HR_HFE">
-          <command_interface name="velocity"/>
-          <state_interface name="position"/>
-          <state_interface name="velocity"/>
-        </joint>
-        <joint name="HR_KFE">
-          <command_interface name="velocity"/>
-          <state_interface name="position"/>
-          <state_interface name="velocity"/>
-        </joint>
-      </ros2_control>
+      <!-- Joint definitions for Solo12 -->
+      <joint name="${prefix}FL_HAA">
+        <command_interface name="position"/>
+        <command_interface name="velocity"/>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="effort">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+      </joint>
+      <joint name="${prefix}FL_HFE">
+        <command_interface name="position"/>
+        <command_interface name="velocity"/>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="effort">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+      </joint>
+      <joint name="${prefix}FL_KFE">
+        <command_interface name="position"/>
+        <command_interface name="velocity"/>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="effort">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+      </joint>
+      <joint name="${prefix}FR_HAA">
+        <command_interface name="position"/>
+        <command_interface name="velocity"/>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="effort">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+      </joint>
+      <joint name="${prefix}FR_HFE">
+        <command_interface name="position"/>
+        <command_interface name="velocity"/>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="effort">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+      </joint>
+      <joint name="${prefix}FR_KFE">
+        <command_interface name="position"/>
+        <command_interface name="velocity"/>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="effort">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+      </joint>
+      <joint name="${prefix}HL_HAA">
+        <command_interface name="position"/>
+        <command_interface name="velocity"/>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="effort">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+      </joint>
+      <joint name="${prefix}HL_HFE">
+        <command_interface name="position"/>
+        <command_interface name="velocity"/>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="effort">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+      </joint>
+      <joint name="${prefix}HL_KFE">
+        <command_interface name="position"/>
+        <command_interface name="velocity"/>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="effort">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+      </joint>
+      <joint name="${prefix}HR_HAA">
+        <command_interface name="position"/>
+        <command_interface name="velocity"/>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="effort">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+      </joint>
+      <joint name="${prefix}HR_HFE">
+        <command_interface name="position"/>
+        <command_interface name="velocity"/>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="effort">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+      </joint>
+      <joint name="${prefix}HR_KFE">
+        <command_interface name="position"/>
+        <command_interface name="velocity"/>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="effort">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+      </joint>
+    </ros2_control>
 
     <xacro:if value="${use_sim}">
       <gazebo>
