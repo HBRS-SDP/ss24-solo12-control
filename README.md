@@ -24,16 +24,6 @@ In short, *ros2_control* is a control framework for ROS 2. But actually, it is m
 
 For more details, check [this presentation](https://control.ros.org/master/doc/resources/resources.html#ros-world-2021).
 
-## Installation
-
-To install the required dependencies, run the following command in the root directory of your workspace:
-
-```bash
-rosdep install --from-paths src --ignore-src -r -y
-```
-
-This command installs all necessary dependencies for the project.
-
 ## Usage
 
 To launch the system, execute the following command:
