@@ -1,0 +1,33 @@
+publisher_joint_trajectory_controller:
+  ros__parameters:
+
+    controller_name: "joint_trajectory_controller"
+    wait_sec_between_publish: 6
+
+    goal_names: ["pos1", "pos2", "pos3", "pos4"]
+
+    # Pos1: Lift front-left and rear-right legs (starting harmonic motion)
+    pos1: [0.3, 0.0, 0.5, 0.3, 0.0, 0.5, -0.3, 0.0, -0.5, -0.3, 0.0, -0.5]
+
+    # Pos2: Lower front-left and rear-right, lift front-right and rear-left
+    pos2: [-0.3, 0.0, -0.5, -0.3, 0.0, -0.5, 0.3, 0.0, 0.5, 0.3, 0.0, 0.5]
+
+    # Pos3: Move the opposite set of legs forward (continuing harmonic motion)
+    pos3: [0.3, 0.0, 0.5, 0.3, 0.0, 0.5, -0.3, 0.0, -0.5, -0.3, 0.0, -0.5]
+
+    # Pos4: Continue alternating legs for a smooth cycle
+    pos4: [-0.3, 0.0, -0.5, -0.3, 0.0, -0.5, 0.3, 0.0, 0.5, 0.3, 0.0, 0.5]
+
+    joints:
+      - FL_HAA  # Front-left hip abduction/adduction
+      - FR_HAA  # Front-right hip abduction/adduction
+      - HL_HAA  # Rear-left hip abduction/adduction
+      - HR_HAA  # Rear-right hip abduction/adduction
+      - FL_KFE  # Front-left knee flexion/extension
+      - FR_KFE  # Front-right knee flexion/extension
+      - HL_KFE  # Rear-left knee flexion/extension
+      - HR_KFE  # Rear-right knee flexion/extension
+      - FL_HFE  # Front-left hip flexion/extension
+      - FR_HFE  # Front-right hip flexion/extension
+      - HL_HFE  # Rear-left hip flexion/extension
+      - HR_HFE  # Rear-right hip flexion/extension
