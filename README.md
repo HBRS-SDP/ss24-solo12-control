@@ -8,9 +8,7 @@ This repository supports the development and control of the SOLO12 robot from th
 
 After cloning the repository, go to your source workspace and execute the following commands to import the necessary repositories and to install all dependencies:
 ```bash
-vcs import --input ss24-solo12-control/ss24-solo12-control.humble.repos .
-rosdep update
-rosdep install -y -i --from-paths .
+rosdep install --from-paths src --ignore-src -r -y
 ```
 
 
