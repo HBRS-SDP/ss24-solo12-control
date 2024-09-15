@@ -53,12 +53,6 @@ This package contains the URDF and XACRO files, defining the kinematics, visual,
 ### 2. Bringup Package (`solo12_bringup`)
 This package is responsible for launching the system, loading robot description files, and starting the necessary controllers.
 
-### 3. Control Package (`solo12_control`)
-This package contains the control logic for the robot, interfacing with the *ros2_control* framework. It includes the setup for sending commands and managing robot behavior.
-
-### 4. Example Applications (`solo12_examples`)
-This package includes example use cases and demonstrations to help test and interact with the robot using *ros2_control*.
-
 ## Using *ros2_control* with SOLO12
 
 The *ros2_control* framework abstracts hardware and low-level control, providing resource management and lifecycle control for the robot. Key components of the framework include:
@@ -80,19 +74,10 @@ ros2 launch solo12_bringup solo12.launch.py
 
 ### Testing Controllers
 
-By default, the system starts with the Joint Trajectory Controller. If you want to load the Forward Command Controller instead, use the following command:
-
-```bash
-ros2 launch solo12_bringup solo12.launch.py robot_controller:=forward_command_controller
-
-```
-To test the controllers, run the following:
-
 ```bash
 ros2 launch solo12_bringup controllers.launch.py
 
 ```
-
 This will launch the joint_trajectory_controller and publish goals using trajectory_msgs.msg.JointTrajectoryPoint.
 
 **NOTE:** Delay between spawning controllers is usually not necessary, but may be useful when starting a complex setup. Adjust this for your specific use case.
@@ -101,9 +86,7 @@ This will launch the joint_trajectory_controller and publish goals using traject
 ## Packages Overview
 
 - **solo12_bringup**: Handles the system startup and controller management.
-- **solo12_control**: Contains control logic and configuration for the controllers.
 - **solo12_description**: Defines the robot's URDF and XACRO files.
-- **solo12_examples**: Provides examples for testing and interacting with the robot.
 
 For more detailed information about each package, please refer to the README files within the respective directories.
 
