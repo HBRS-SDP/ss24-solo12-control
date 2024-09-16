@@ -22,6 +22,16 @@ In short, *ros2_control* is a control framework for ROS 2. But actually, it is m
 
 For more details, check [this presentation](https://control.ros.org/master/doc/resources/resources.html#ros-world-2021).
 
+## Repository Structure
+
+The repository is structured around the following main components:
+
+### 1. Robot Description (`solo12_description`)
+This package contains the URDF and XACRO files, defining the kinematics, visual, and collision properties of the SOLO12 robot.
+
+### 2. Bringup Package (`solo12_bringup`)
+This package is responsible for launching the system, loading robot description files, and starting the necessary controllers.
+
 ## Usage
 
 To launch the system, execute the following command:
@@ -42,15 +52,6 @@ ros2 launch solo12_description view_solo12.launch.py
 
 This will load the robot's URDF and allow interaction with the robot's joints through Rviz2.
 
-## Repository Structure
-
-The repository is structured around the following main components:
-
-### 1. Robot Description (`solo12_description`)
-This package contains the URDF and XACRO files, defining the kinematics, visual, and collision properties of the SOLO12 robot.
-
-### 2. Bringup Package (`solo12_bringup`)
-This package is responsible for launching the system, loading robot description files, and starting the necessary controllers.
 
 ## Using *ros2_control* with SOLO12
 
@@ -80,6 +81,35 @@ ros2 launch solo12_bringup controllers.launch.py
 This will launch the joint_trajectory_controller and publish goals using trajectory_msgs.msg.JointTrajectoryPoint.
 
 **NOTE:** Delay between spawning controllers is usually not necessary, but may be useful when starting a complex setup. Adjust this for your specific use case.
+
+## Troubleshooting
+
+After executing the command:
+
+```bash
+ros2 launch solo12_bringup solo12.launch.py
+```
+You might encounter the following warning:
+
+```bash
+[WARNING] [launch_ros.actions.node]: Parameter file path is not a file: /home/ritz/ros/install/solo12_bringup/share/solo12_bringup/config/solo12_controllers.yaml
+```
+
+Fixing the Warning
+
+To resolve this issue, follow these steps:
+
+    1. Locate the solo12_controllers.yaml file from your source directory.
+
+    2 .Copy it to the specified location:
+```bash
+cp /path/to/source/solo12_bringup/config/solo12_controllers.yaml /home/ritz/ros/install/solo12_bringup/share/solo12_bringup/config/
+```
+Ensure you replace /path/to/source/ with the actual path where the solo12_controllers.yaml file is located.
+This should resolve the warning and allow you to proceed with launching and using the SOLO12 robot system.
+
+
+
 
 
 ## Packages Overview
