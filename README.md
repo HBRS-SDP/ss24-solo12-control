@@ -92,7 +92,7 @@ ros2 launch solo12_bringup solo12.launch.py
 You might encounter the following warning:
 
 ```bash
-[WARNING] [launch_ros.actions.node]: Parameter file path is not a file: /home/ritz/ros/install/solo12_bringup/share/solo12_bringup/config/solo12_controllers.yaml
+[WARNING] [launch_ros.actions.node]: Parameter file path is not a file: /path/to/source/install/solo12_bringup/share/solo12_bringup/config/solo12_controllers.yaml
 ```
 
 Fixing the Warning
@@ -102,6 +102,7 @@ To resolve this issue, follow these steps:
     1. Locate the solo12_controllers.yaml file from your source directory.
 
     2 .Copy it to the specified location:
+
 ```bash
 cp /path/to/source/solo12_bringup/config/solo12_controllers.yaml /home/ritz/ros/install/solo12_bringup/share/solo12_bringup/config/
 ```
