@@ -104,7 +104,7 @@ To resolve this issue, follow these steps:
     2 .Copy it to the specified location:
 
 ```bash
-cp /path/to/source/solo12_bringup/config/solo12_controllers.yaml /home/ritz/ros/install/solo12_bringup/share/solo12_bringup/config/
+cp /path/to/source/solo12_bringup/config/solo12_controllers.yaml /path/to/source/install/solo12_bringup/share/solo12_bringup/config/
 ```
 Ensure you replace /path/to/source/ with the actual path where the solo12_controllers.yaml file is located.
 This should resolve the warning and allow you to proceed with launching and using the SOLO12 robot system.
